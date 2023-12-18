@@ -1,0 +1,14 @@
+System.out.println("Podaj jakiego nauczyciela plan lekcji chcesz zobaczyc?");
+String selectedTeacher = scanner.nextLine().toLowerCase(); // Convert to lowercase
+
+// Check if the selected teacher exists (case-insensitive)
+boolean teacherExists = false;
+for (String teacher : teachers) {
+    if (teacher.toLowerCase().equals(selectedTeacher) || teacher.toUpperCase().equals(selectedTeacher)) {
+        // Convert both to lowercase and uppercase for comparison
+        teacherExists = true;
+        break;
+    }
+}
+
+// Rest of your code...
