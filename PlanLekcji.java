@@ -5,22 +5,31 @@ public class Timetable {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Assuming you have a list of teachers
         String[] teachers = {"Nowak", "Ignaczewska", "Jaskowiak"};
 
         // 5 days and 6 periods per day
-        String[][] timetable = new String[5][6];
+        String[][] timetable = {
+            {"Nr  Godz", "Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek"},
+            {"1. 7:45-8:30", "", "Matematyka", "Matematyka", "Informatyka", "Witriny i Apl."},
+            {"2. 8:40-9:25", "Historia", "Historia", "Matematyka", "Informatyka", "Bazy danych"},
+            {"3. 9:35-10:20", "Chemia", "Chemia", "Wychowanie", "Witriny i Apl.", "Bazy danych"},
+            {"4. 10:35-11:20", "Prog. Obiekt", "Polski", "Polski", "Witriny i Apl.", "Bazy danych"},
+            {"5. 11:30-12:15", "Angielski", "Polski", "Niemicki", "Geografia", "WF"},
+            {"6. 12:25-13:10", "WF", "Wychowanie", "Niemicki", "", "WF"},
+            {"7. 13:20-14:05", "Prog. Obiekt", "Matematyka", "Informatyka", "", "HIT"},
+            {"8. 14:10-14:55", "Prog. Obiekt", "Przedsie.", "", "", "Geografia"},
+            {"9. 15:00-15:45", "Prog. Obiekt", "Witriny i Apl.", "", "", "Angielski"},
+        };
 
-        for (int day = 0; day < 5; day++) {
-            for (int period = 0; period < 6; period++) {
-                timetable[day][period] = "Klasa " + (day * 10 + period + 10);
-            }
-        }
+       // for (int day = 0; day < 5; day++) {
+           // for (int period = 0; period < 6; period++) {
+//timetable[day][period] = "Klasa " + (day * 10 + period + 10);
+           // }
+       // }
 
-        System.out.println("Podaj jakiego nauczyciela plan lekcji chcesz zobaczyc?");
-String selectedTeacher = scanner.nextLine().toLowerCase(); // Convert to lowercase
+System.out.println("Podaj jakiego nauczyciela plan lekcji chcesz zobaczyc?");
+String selectedTeacher = scanner.nextLine().toLowerCase();
 
-// Check if the selected teacher exists (case-insensitive)
 boolean teacherExists = false;
 for (String teacher : teachers) {
     if (teacher.toLowerCase().equals(selectedTeacher) || teacher.toUpperCase().equals(selectedTeacher)) {
@@ -28,8 +37,6 @@ for (String teacher : teachers) {
         break;
     }
 }
-
-       // boolean teacherExists = false;
         for (String teacher : teachers) {
             if (teacher.equals(selectedTeacher)) {
                 teacherExists = true;
@@ -51,7 +58,7 @@ for (String teacher : teachers) {
                 System.out.println("Plan lekcji dla " + selectedTeacher + " w dzień " + selectedDay + ":");
                 System.out.println("-------------------------------");
                 for (int period = 0; period < 9; period++) {
-                    System.out.println("Lekcja " + (period + 1) + ": " + timetable[selectedDay - 1][period]);
+                    System.out.println("Lekcja " + (period + 1) + ": " + timetable[selectedDay][period]);
 
                     
                 }
