@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class FibonacciProgram {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj indeks ciągu Fibonacciego: ");
+        int index = scanner.nextInt();
+
+        if (index < 0) {
+            System.out.println("Proszę podać nieujemny indeks.");
+        } else {
+            long result = fibonacci(index);
+            System.out.println("Wartość na indeksie " + index + " ciągu Fibonacciego to: " + result);
+        }
+
+        scanner.close();
+    }
+
+    public static long fibonacci(int n) {
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        } else {
+            long a = 0;
+            long b = 1;
+            long result = 0;
+
+            for (int i = 2; i <= n; i++) {
+                result = a + b;
+                a = b;
+                b = result;
+            }
+
+            return result;
+        }
+    }
+}
